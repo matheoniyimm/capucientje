@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login — 't Capucientje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Lato', sans-serif; background: #1A1208; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .login-box { background: #F5F0E8; padding: 3rem; width: 100%; max-width: 400px; }
+    .login-logo { text-align: center; margin-bottom: 2rem; }
+    .login-logo h1 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #5C3D1E; font-weight: 400; }
+    .login-logo p { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C9A84C; margin-top: 4px; }
+    .form-group { margin-bottom: 1.2rem; }
+    label { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7A6650; margin-bottom: 6px; font-weight: 700; }
+    input { width: 100%; padding: 12px 14px; border: 1px solid rgba(201,168,76,0.3); background: white; font-family: 'Lato', sans-serif; font-size: 0.9rem; color: #1A1208; outline: none; }
+    input:focus { border-color: #C9A84C; }
+    .btn-submit { width: 100%; padding: 14px; background: #C9A84C; color: #1A1208; border: none; font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; }
+    .btn-submit:hover { background: #E8C96A; }
+    .fout { background: #fee; border: 1px solid #fcc; padding: 10px 14px; font-size: 0.85rem; color: #c00; margin-bottom: 1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="login-logo">
+      <h1>Café 't Capucientje</h1>
+      <p>Admin Panel</p>
+    </div>
+    <% if (fout) { %>
+      <div class="fout"><%= fout %></div>
+    <% } %>
+    <form method="POST" action="/admin/login">
+      <div class="form-group">
+        <label>Gebruikersnaam</label>
+        <input type="text" name="gebruikersnaam" required autofocus/>
+      </div>
+      <div class="form-group">
+        <label>Wachtwoord</label>
+        <input type="password" name="wachtwoord" required/>
+      </div>
+      <button type="submit" class="btn-submit">Inloggen →</button>
+    </form>
+  </div>
+</body>
+</html>

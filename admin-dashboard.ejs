@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard — 't Capucientje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Lato', sans-serif; background: #F5F0E8; color: #1A1208; }
+
+    /* HEADER */
+    .header {
+      background: #1A1208;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+    }
+    .header-brand { font-family: 'Playfair Display', serif; color: #C9A84C; font-size: 1.1rem; font-weight: 400; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-right a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; }
+    .header-right a:hover { color: #C9A84C; }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2rem; }
+    .stat-card { background: white; border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #C9A84C; display: block; }
+    .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7A6650; margin-top: 4px; display: block; }
+    .stat-card.nieuw .stat-num { color: #e67e22; }
+    .stat-card.bevestigd .stat-num { color: #27ae60; }
+    .stat-card.geannuleerd .stat-num { color: #c0392b; }
+
+    /* FILTERS */
+    .filters { padding: 0 2rem 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 8px 18px; border: 1px solid rgba(201,168,76,0.3);
+      background: white; color: #7A6650; cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.actief { background: #C9A84C; color: #1A1208; border-color: #C9A84C; }
+
+    /* TABLE */
+    .table-wrap { padding: 0 2rem 2rem; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    thead { background: #1A1208; }
+    thead th { padding: 12px 16px; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: #C9A84C; font-weight: 700; text-align: left; }
+    tbody tr { border-bottom: 1px solid rgba(201,168,76,0.1); transition: background 0.15s; }
+    tbody tr:hover { background: #faf8f4; }
+    td { padding: 14px 16px; font-size: 0.88rem; color: #2C1F0E; vertical-align: middle; }
+    .td-muted { color: #7A6650; font-size: 0.8rem; }
+
+    /* BADGES */
+    .badge { display: inline-block; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; font-weight: 700; }
+    .badge-nieuw { background: #fff3e0; color: #e67e22; }
+    .badge-bevestigd { background: #e8f5e9; color: #27ae60; }
+    .badge-geannuleerd { background: #fce4e4; color: #c0392b; }
+
+    /* ACTIONS */
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn-bevestig { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; background: #27ae60; color: white; border: none; cursor: pointer; }
+    .btn-annuleer { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; background: #c0392b; color: white; border: none; cursor: pointer; }
+    .btn-verwijder { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; background: #eee; color: #666; border: none; cursor: pointer; }
+    .btn-bevestig:hover { background: #219a52; }
+    .btn-annuleer:hover { background: #a93226; }
+    .btn-verwijder:hover { background: #ddd; }
+
+    .leeg { text-align: center; padding: 4rem; color: #7A6650; font-style: italic; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: #1A1208; color: #C9A84C;
+      padding: 1rem 1.5rem; font-size: 0.85rem;
+      border-left: 3px solid #C9A84C;
+      display: none; z-index: 999;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn { from { transform: translateX(100px); opacity: 0; } to { transform: none; opacity: 1; } }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">Café 't Capucientje — Admin</div>
+  <div class="header-right">
+    <a href="/" target="_blank">← Naar website</a>
+    <a href="/admin/logout">Uitloggen</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card nieuw">
+    <span class="stat-num"><%= stats.nieuw %></span>
+    <span class="stat-label">Nieuwe aanvragen</span>
+  </div>
+  <div class="stat-card bevestigd">
+    <span class="stat-num"><%= stats.bevestigd %></span>
+    <span class="stat-label">Bevestigd</span>
+  </div>
+  <div class="stat-card geannuleerd">
+    <span class="stat-num"><%= stats.geannuleerd %></span>
+    <span class="stat-label">Geannuleerd</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num"><%= stats.totaal %></span>
+    <span class="stat-label">Totaal</span>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <a href="/admin?status=alle" class="filter-btn <%= filter === 'alle' ? 'actief' : '' %>">Alle</a>
+  <a href="/admin?status=nieuw" class="filter-btn <%= filter === 'nieuw' ? 'actief' : '' %>">Nieuw</a>
+  <a href="/admin?status=bevestigd" class="filter-btn <%= filter === 'bevestigd' ? 'actief' : '' %>">Bevestigd</a>
+  <a href="/admin?status=geannuleerd" class="filter-btn <%= filter === 'geannuleerd' ? 'actief' : '' %>">Geannuleerd</a>
+</div>
+
+<!-- TABLE -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Naam</th>
+        <th>Contact</th>
+        <th>Datum</th>
+        <th>Zaal</th>
+        <th>Pers.</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Acties</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (reservaties.length === 0) { %>
+        <tr><td colspan="9" class="leeg">Geen reservaties gevonden.</td></tr>
+      <% } else { %>
+        <% reservaties.forEach(r => { %>
+        <tr id="rij-<%= r.id %>">
+          <td class="td-muted">#<%= r.id %></td>
+          <td><strong><%= r.naam %></strong></td>
+          <td>
+            <a href="mailto:<%= r.email %>" style="color:#5C3D1E;"><%= r.email %></a><br>
+            <span class="td-muted"><%= r.telefoon %></span>
+          </td>
+          <td>
+            <%= new Date(r.datum).toLocaleDateString('nl-BE', {day:'2-digit', month:'2-digit', year:'numeric'}) %>
+          </td>
+          <td><%= r.zaal %></td>
+          <td><%= r.personen %></td>
+          <td class="td-muted"><%= r.type_event %></td>
+          <td>
+            <span class="badge badge-<%= r.status %>" id="badge-<%= r.id %>"><%= r.status %></span>
+          </td>
+          <td>
+            <div class="actions">
+              <% if (r.status !== 'bevestigd') { %>
+                <button class="btn-bevestig" onclick="wijzigStatus(<%= r.id %>, 'bevestigd')">Bevestig</button>
+              <% } %>
+              <% if (r.status !== 'geannuleerd') { %>
+                <button class="btn-annuleer" onclick="wijzigStatus(<%= r.id %>, 'geannuleerd')">Annuleer</button>
+              <% } %>
+              <button class="btn-verwijder" onclick="verwijder(<%= r.id %>)">✕</button>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  function toonToast(bericht) {
+    const t = document.getElementById('toast');
+    t.textContent = bericht;
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 3000);
+  }
+
+  async function wijzigStatus(id, status) {
+    const res = await fetch(`/admin/reservatie/${id}/status`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status })
+    });
+    const data = await res.json();
+    if (data.success) {
+      const badge = document.getElementById(`badge-${id}`);
+      badge.className = `badge badge-${status}`;
+      badge.textContent = status;
+      toonToast(`Status bijgewerkt naar: ${status}`);
+      setTimeout(() => location.reload(), 1500);
+    }
+  }
+
+  async function verwijder(id) {
+    if (!confirm('Zeker dat u deze reservatie wilt verwijderen?')) return;
+    const res = await fetch(`/admin/reservatie/${id}`, { method: 'DELETE' });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById(`rij-${id}`).remove();
+      toonToast('Reservatie verwijderd.');
+    }
+  }
+</script>
+</body>
+</html>
