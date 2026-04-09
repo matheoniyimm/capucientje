@@ -387,9 +387,17 @@
       const result = await res.json();
 
       if (result.success) {
-        // Sla boekingsdata op in sessionStorage en stuur door naar successpagina
-        sessionStorage.setItem('boeking', JSON.stringify({ ...data, id: result.id }));
-        window.location.href = '/boeking-succes';
+        const p = new URLSearchParams({
+          id: result.id,
+          naam: result.naam,
+          email: result.email,
+          datum: result.datum,
+          zaal: result.zaal,
+          personen: result.personen,
+          type_event: result.type_event,
+          bericht: result.bericht || ''
+        });
+        window.location.href = '/boeking-succes?' + p.toString();
       } else {
         fout.textContent = result.bericht;
         fout.style.display = 'block';
