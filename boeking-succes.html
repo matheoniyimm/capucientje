@@ -341,9 +341,9 @@
   <p class="footer-copy">© 2026 Café 't Capucientje — Aalst</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Haal boekingsdata op uit sessionStorage (ingevuld door het formulier)
-  const boeking = JSON.parse(sessionStorage.getItem('boeking') || 'null');
+<script>
+  // Lees data uit URL parameters
+  const params = new URLSearchParams(window.location.search);
 
   function datumFormaat(datumStr) {
     if (!datumStr) return '—';
@@ -352,15 +352,26 @@
     });
   }
 
-  if (boeking) {
-    document.getElementById('klantNaam').textContent = boeking.naam.split(' ')[0];
-    document.getElementById('refNummer').textContent = '#' + (boeking.id || '—');
-    document.getElementById('detailNaam').textContent = boeking.naam;
-    document.getElementById('detailDatum').textContent = datumFormaat(boeking.datum);
-    document.getElementById('detailZaal').textContent = boeking.zaal;
-    document.getElementById('detailPersonen').textContent = boeking.personen + ' personen';
-    document.getElementById('detailType').textContent = boeking.type_event;
-    document.getElementById('detailEmail').textContent = boeking.email;
+  const naam = params.get('naam') || '—';
+  const id = params.get('id') || '—';
+  const datum = params.get('datum') || '—';
+  const zaal = params.get('zaal') || '—';
+  const personen = params.get('personen') || '—';
+  const type_event = params.get('type_event') || '—';
+  const email = params.get('email') || '—';
+  const bericht = params.get('bericht') || '';
 
-    if (boeking.bericht) {
-      document.getElementById('detailBericht').textContent = '"' + bo
+  document.getElementById('klantNaam').textContent = naam.split(' ')[0];
+  document.getElementById('refNummer').textContent = '#' + id;
+  document.getElementById('detailNaam').textContent = naam;
+  document.getElementById('detailDatum').textContent = datumFormaat(datum);
+  document.getElementById('detailZaal').textContent = zaal;
+  document.getElementById('detailPersonen').textContent = personen + ' personen';
+  document.getElementById('detailType').textContent = type_event;
+  document.getElementById('detailEmail').textContent = email;
+
+  if (bericht) {
+    document.getElementById('detailBericht').textContent = '"' + bericht + '"';
+  } else {
+    document.getElementById('opmerkingBlok').style.display = 'none';
+  }
