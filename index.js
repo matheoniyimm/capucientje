@@ -112,7 +112,7 @@ app.post('/api/reservatie', async (req, res) => {
       console.error('E-mail fout:', mailErr.message);
     }
 
-    res.json({ success: true, id: reservatieId });
+    res.json({ success: true, id: reservatieId, naam, email, datum, zaal, personen, type_event, bericht: bericht || '' });
   } catch (err) {
     console.error('DB fout:', err.message);
     res.status(500).json({ success: false, bericht: 'Er is iets misgegaan. Probeer opnieuw.' });
