@@ -79,35 +79,7 @@
     .zaal-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
     .zaal-price span { font-family: 'Lato', sans-serif; font-size: 0.75rem; color: var(--muted); }
 
-    .reviews { background: var(--cream); }
-    .reviews-score { text-align: center; margin-bottom: 3rem; }
-    .score-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); line-height: 1; }
-    .score-stars { font-size: 1.5rem; color: var(--gold); margin: 0.5rem 0; letter-spacing: 4px; }
-    .score-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .review-card { background: white; border: 1px solid var(--border); padding: 1.5rem; transition: transform 0.3s, box-shadow 0.3s; }
-    .review-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(92,61,30,0.1); }
-    .review-card.hidden { display: none; }
-    .review-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-    .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--dark); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1rem; flex-shrink: 0; }
-    .review-name { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .review-stars { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; }
-    .review-text { font-size: 0.88rem; line-height: 1.7; color: var(--muted); font-style: italic; font-weight: 300; }
-
-    .maps-section { background: var(--dark); padding: 6rem 2rem; }
-    .maps-section .section-title { color: var(--cream); }
-    .maps-section .section-divider span { background: rgba(201,168,76,0.3); }
-    .maps-wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; max-width: 1100px; margin: 0 auto; align-items: start; }
-    .maps-info { color: var(--cream); }
-    .maps-detail { margin-bottom: 1.5rem; }
-    .maps-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.4rem; }
-    .maps-value { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); line-height: 1.6; }
-    .maps-embed { border: 1px solid rgba(201,168,76,0.2); overflow: hidden; }
-
-    @media (max-width: 768px) {
-      .reviews-grid { grid-template-columns: 1fr; }
-      .maps-wrap { grid-template-columns: 1fr; }
-    }
+    .terras { background: var(--brown); color: var(--cream); text-align: center; }
     .terras .section-title { color: var(--cream); }
     .terras .section-divider span { background: rgba(201,168,76,0.3); }
     .terras-content { max-width: 650px; margin: 0 auto; }
@@ -175,7 +147,6 @@
     <li><a href="#over">Over ons</a></li>
     <li><a href="#zalen">Zalen</a></li>
     <li><a href="#terras">Terras</a></li>
-    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#reserveer" class="nav-cta">Reserveer nu</a>
@@ -272,81 +243,6 @@
 </section>
 
 <!-- RESERVATIEFORMULIER MET ECHTE BACK-END -->
-<!-- REVIEWS SECTIE -->
-<section class="reviews" id="reviews">
-  <p class="section-tag">Wat klanten zeggen</p>
-  <h2 class="section-title">Wat onze <em>klanten</em> vinden</h2>
-  <div class="section-divider"><span></span><i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i><span></span></div>
-
-  <div class="reviews-score">
-    <div class="score-num">4.4</div>
-    <div class="score-stars">★★★★★</div>
-    <div class="score-label">147+ tevreden klanten</div>
-  </div>
-
-  <div class="reviews-grid" id="reviewsGrid">
-    <div class="review-card"><div class="review-header"><div class="review-avatar">A</div><div><p class="review-name">Annnas Akoudad</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Top service, gezellig en aangenaam genieten! Voor Geboortefeest de zalen verhuurd en deze zijn zeer groot en modern."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">C</div><div><p class="review-name">Cedric Taelemans</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Zeer vriendelijke zaakvoerder in een gezellige zaak. Ruime keuze op de kaart en veel parkeergelegenheid. Dikke aanrader!"</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">A</div><div><p class="review-name">Anita Boriau</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Gaan af en toe iets drinken of een croque monsieur eten, niet te hard gebakken en heerlijk van smaak. Verder vriendelijk personeel!"</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">B</div><div><p class="review-name">Bart Van Hauwermeiren</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Verzorgd café, uitgebaat door gedreven uitbater. Altijd vriendelijk en snel bediend. Beschikt ook over meerdere feest- en vergaderzalen. Aanrader!"</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">M</div><div><p class="review-name">Martine De Smet</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Zeer sfeervolle en gezellige café met vlotte en vriendelijke bediening. Sfeer: 5/5."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">D</div><div><p class="review-name">David De Smedt</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Top zaak, top service, kortom een zaak waar je met plezier naar terug gaat."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">P</div><div><p class="review-name">Patrick Van den broucke</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Super mooie plek met zeeeer vriendelijke bediening, echt de place to be in Aalst en omstreken! Doe zo voort, we blijven trouwe klanten."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">G</div><div><p class="review-name">Guido Wallez</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Toffe zaal achteraan het café. Ideaal voor vergaderingen want er is een beamer aanwezig. Gezellig café met een vlotte vriendelijke patron."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">K</div><div><p class="review-name">Kim De Bolle</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Fantastisch café met feestzaal. Proper en netjes onderhouden. Vriendelijke uitbater en zéér vriendelijke bediening. En gezellig terras."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">P</div><div><p class="review-name">Peter de maere</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Toffe café, gezellig zitten, pas volledig vernieuwd. Fijn ruim en open terras. Verzorgde bediening en eerlijke prijzen."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">J</div><div><p class="review-name">Johan Lievens</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Verzorgde en vriendelijke bediening, mooi interieur en ook nog eens een mooie grote zaal aan."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">E</div><div><p class="review-name">Eric van hauwermeiren</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Zeer mooie café met gezellige sfeer en toffe café baas. Zaal nodig geen probleem die hebben ze ook."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">G</div><div><p class="review-name">Greta Deruyck</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Gezellig, genieten buiten in het zonnetje. Als we Aalst bezoeken dan gaan we daar geregeld iets drinken."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">L</div><div><p class="review-name">Linda Vandenborne</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Vriendelijke bediening en gezellig café met mogelijkheden voor o.a. feesten."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">M</div><div><p class="review-name">Marc Malfroy</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Prachtig gelegen, mooi aanbod van dranken en hapjes. Vriendelijke uitbater."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">K</div><div><p class="review-name">Kjell premereur</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Top TOP TOP!!! Supermooi na de vernieuwing zowel binnen als op het terras."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">J</div><div><p class="review-name">Joery De Brabanter</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Vree gezellig en vriendelijke patron! Erg goed qua prijs."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">C</div><div><p class="review-name">Conny De Decker</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Tof cafeetje met een ruim terras. De sympathieke patron zorgt zelf voor de vlotte bediening van de drankjes en hapjes."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">L</div><div><p class="review-name">Line Bruno</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Super vriendelijke bediening. Sfeervolle vergader/feestzaal. Een aanrader!"</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">J</div><div><p class="review-name">Jozef Callebaut</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Aangename plek om een pintje te drinken. Heb er steeds een leuke babbel. Verfrissend. Verzorgde bediening."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">G</div><div><p class="review-name">giselle gomes cezar vieira</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Zeer aangenaam, vriendelijk personeel, goede sfeer en een prachtig terras."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">F</div><div><p class="review-name">Fabienne Vansilliette</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Een baas die zich volledig inzet voor zijn doelen. Uiterst vriendelijk en de service is uitstekend."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">A</div><div><p class="review-name">Aziza Annette Cocquyt</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Een buitengewoon geslaagde ervaring... heerlijk eten, een jeugdige sfeer en een tweetalige serveerster."</p></div>
-    <div class="review-card"><div class="review-header"><div class="review-avatar">J</div><div><p class="review-name">Jeroen Willems</p><div class="review-stars">★★★★★</div></div></div><p class="review-text">"Erg leuke en gezellige bar. Vriendelijk personeel en goede service. Leuk voor een avondje uit met vrienden!"</p></div>
-  </div>
-
-  <div style="text-align:center;margin-top:2rem;" id="reviewsToggle">
-    <button onclick="toggleReviews()" id="toggleBtn" class="btn-outline" style="display:inline-block;">Toon alle reviews ▼</button>
-  </div>
-</section>
-
-<!-- GOOGLE MAPS -->
-<section class="maps-section" id="maps">
-  <p class="section-tag">Hoe ons vinden</p>
-  <h2 class="section-title">Kom <em>langs</em></h2>
-  <div class="section-divider"><span></span><i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i><span></span></div>
-  <div class="maps-wrap">
-    <div class="maps-info">
-      <div class="maps-detail">
-        <span class="maps-label">Adres</span>
-        <p class="maps-value">Capucienenlaan 99<br>9300 Aalst</p>
-      </div>
-      <div class="maps-detail">
-        <span class="maps-label">Openingsuren</span>
-        <p class="maps-value">Ma–Vr: 10u – 23u<br>Za–Zo: 10u – 01u</p>
-      </div>
-      <div class="maps-detail">
-        <span class="maps-label">Telefoon</span>
-        <p class="maps-value">+32 XXX XX XX XX</p>
-      </div>
-      <a href="https://www.google.com/maps/dir//'t+Capucientje,+Capucienenlaan+99,+9300+Aalst" target="_blank" class="btn-gold" style="margin-top:1.5rem;display:inline-block;">Route plannen →</a>
-    </div>
-    <div class="maps-embed">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.8!2d4.0303389!3d50.9323801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bd4e2832ccc5%3A0xbc4466c2925972!2s't%20Capucientje!5e0!3m2!1snl!2sbe!4v1"
-        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
 <section class="reserveer" id="reserveer">
   <p class="section-tag">Boek uw datum</p>
   <h2 class="section-title">Reserveer een <em>zaal</em></h2>
@@ -451,21 +347,7 @@
 </footer>
 
 <script>
-  // Verberg reviews na de 6e bij laden
-  window.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.review-card');
-    cards.forEach((card, i) => { if (i >= 6) card.classList.add('hidden'); });
-  });
-
-  let toonAlle = false;
-  function toggleReviews() {
-    toonAlle = !toonAlle;
-    const cards = document.querySelectorAll('.review-card');
-    cards.forEach((card, i) => {
-      if (i >= 6) card.classList.toggle('hidden', !toonAlle);
-    });
-    document.getElementById('toggleBtn').textContent = toonAlle ? 'Toon minder ▲' : 'Toon alle reviews ▼';
-  }
+  // Beschikbaarheid checken bij datum/zaal wijziging
   async function checkBeschikbaarheid() {
     const datum = document.getElementById('datumInput').value;
     const zaal = document.getElementById('zaalSelect').value;
