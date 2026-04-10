@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8"/>
@@ -79,7 +79,7 @@
     .zaal-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
     .zaal-price span { font-family: 'Lato', sans-serif; font-size: 0.75rem; color: var(--muted); }
 
-    .reviews { background: var(--cream); }
+    .reviews { background: var(--cream); padding: 6rem 2rem; }
     .reviews-score { text-align: center; margin-bottom: 3rem; }
     .score-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); line-height: 1; }
     .score-stars { font-size: 1.5rem; color: var(--gold); margin: 0.5rem 0; letter-spacing: 4px; }
@@ -110,11 +110,13 @@
     }
     .terras .section-title { color: var(--cream); }
     .terras .section-divider span { background: rgba(201,168,76,0.3); }
-    .terras-content { max-width: 650px; margin: 0 auto; }
+    .terras-content { max-width: 650px; margin: 0 auto; text-align: center; }
     .terras-content p { font-size: 1rem; line-height: 1.9; color: rgba(245,240,232,0.8); font-weight: 300; margin-bottom: 2rem; }
     .terras-facts { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .terras-fact { text-align: center; }
     .terras-fact-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-light); display: block; }
     .terras-fact-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.6); }
+    .terras-content .btn-gold { display: inline-block; }
 
     /* RESERVATIEFORMULIER */
     .reserveer { background: var(--cream); }
@@ -256,18 +258,31 @@
   </div>
 </section>
 
-<section class="terras" id="terras">
-  <p class="section-tag">Buiten genieten</p>
-  <h2 class="section-title" style="color:#F5F0E8;">Ons ruim <em>terras</em></h2>
-  <div class="section-divider"><span></span><i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i><span></span></div>
-  <div class="terras-content">
-    <p>Op mooie dagen is ons terras de perfecte plek om bij te praten met vrienden of familie. Ruim, aangenaam en centraal gelegen in Aalst.</p>
-    <div class="terras-facts">
-      <div class="terras-fact"><span class="terras-fact-num">80+</span><span class="terras-fact-label">Zitplaatsen</span></div>
-      <div class="terras-fact"><span class="terras-fact-num">Centrum</span><span class="terras-fact-label">Ligging Aalst</span></div>
-      <div class="terras-fact"><span class="terras-fact-num">Zon</span><span class="terras-fact-label">Optimale oriëntatie</span></div>
+<section id="terras" style="background:var(--brown);color:var(--cream);text-align:center;padding:6rem 2rem;">
+  <p class="section-tag" style="color:var(--gold-light);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem;">Buiten genieten</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--cream);margin-bottom:1rem;">Ons ruim <em style="font-style:italic;color:var(--gold-light);">terras</em></h2>
+  <div style="display:flex;align-items:center;gap:1rem;max-width:200px;margin:0 auto 3.5rem;">
+    <span style="flex:1;height:1px;background:rgba(201,168,76,0.3);"></span>
+    <i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i>
+    <span style="flex:1;height:1px;background:rgba(201,168,76,0.3);"></span>
+  </div>
+  <div style="max-width:650px;margin:0 auto;text-align:center;">
+    <p style="font-size:1rem;line-height:1.9;color:rgba(245,240,232,0.8);font-weight:300;margin-bottom:2rem;">Op mooie dagen is ons terras de perfecte plek om bij te praten met vrienden of familie. Ruim, aangenaam en centraal gelegen in Aalst.</p>
+    <div style="display:flex;justify-content:center;gap:3rem;margin-bottom:2.5rem;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <span style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);display:block;">80+</span>
+        <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.6);">Zitplaatsen</span>
+      </div>
+      <div style="text-align:center;">
+        <span style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);display:block;">Centrum</span>
+        <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.6);">Ligging Aalst</span>
+      </div>
+      <div style="text-align:center;">
+        <span style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);display:block;">Zon</span>
+        <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.6);">Optimale oriëntatie</span>
+      </div>
     </div>
-    <a href="#contact" class="btn-gold">Kom langs</a>
+    <a href="#reserveer" style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;padding:15px 36px;background:var(--gold);color:var(--dark);border:none;cursor:pointer;text-decoration:none;font-family:'Lato',sans-serif;font-weight:700;display:inline-block;">Reserveer nu</a>
   </div>
 </section>
 
@@ -313,37 +328,6 @@
 
   <div style="text-align:center;margin-top:2rem;" id="reviewsToggle">
     <button onclick="toggleReviews()" id="toggleBtn" class="btn-outline" style="display:inline-block;">Toon alle reviews ▼</button>
-  </div>
-</section>
-
-<!-- GOOGLE MAPS -->
-<section class="maps-section" id="maps">
-  <p class="section-tag">Hoe ons vinden</p>
-  <h2 class="section-title">Kom <em>langs</em></h2>
-  <div class="section-divider"><span></span><i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i><span></span></div>
-  <div class="maps-wrap">
-    <div class="maps-info">
-      <div class="maps-detail">
-        <span class="maps-label">Adres</span>
-        <p class="maps-value">Capucienenlaan 99<br>9300 Aalst</p>
-      </div>
-      <div class="maps-detail">
-        <span class="maps-label">Openingsuren</span>
-        <p class="maps-value">Ma–Vr: 10u – 23u<br>Za–Zo: 10u – 01u</p>
-      </div>
-      <div class="maps-detail">
-        <span class="maps-label">Telefoon</span>
-        <p class="maps-value">+32 XXX XX XX XX</p>
-      </div>
-      <a href="https://www.google.com/maps/dir//'t+Capucientje,+Capucienenlaan+99,+9300+Aalst" target="_blank" class="btn-gold" style="margin-top:1.5rem;display:inline-block;">Route plannen →</a>
-    </div>
-    <div class="maps-embed">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.8!2d4.0303389!3d50.9323801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bd4e2832ccc5%3A0xbc4466c2925972!2s't%20Capucientje!5e0!3m2!1snl!2sbe!4v1"
-        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
   </div>
 </section>
 
@@ -416,25 +400,33 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<!-- CONTACT & GOOGLE MAPS -->
+<section class="maps-section" id="contact">
   <p class="section-tag">Vind ons</p>
-  <h2 class="section-title" style="color:#F5F0E8;">Kom <em>langs</em></h2>
+  <h2 class="section-title">Kom <em>langs</em></h2>
   <div class="section-divider"><span></span><i style="font-style:normal;color:var(--gold);font-size:0.65rem;">✦</i><span></span></div>
-  <div class="contact-grid">
-    <div class="contact-item">
-      <span class="contact-icon">📍</span>
-      <span class="contact-label">Adres</span>
-      <p class="contact-value">Aalst Centrum<br>Oost-Vlaanderen</p>
+  <div class="maps-wrap">
+    <div class="maps-info">
+      <div class="maps-detail">
+        <span class="maps-label">📍 Adres</span>
+        <p class="maps-value">Capucienenlaan 99<br>9300 Aalst</p>
+      </div>
+      <div class="maps-detail">
+        <span class="maps-label">🕐 Openingsuren</span>
+        <p class="maps-value">Ma–Vr: 10u – 23u<br>Za–Zo: 10u – 01u</p>
+      </div>
+      <div class="maps-detail">
+        <span class="maps-label">📞 Telefoon</span>
+        <p class="maps-value">+32 XXX XX XX XX</p>
+      </div>
+      <a href="https://www.google.com/maps/dir//'t+Capucientje,+Capucienenlaan+99,+9300+Aalst" target="_blank" class="btn-gold" style="margin-top:1.5rem;display:inline-block;">Route plannen →</a>
     </div>
-    <div class="contact-item">
-      <span class="contact-icon">📞</span>
-      <span class="contact-label">Telefoon</span>
-      <p class="contact-value">+32 XXX XX XX XX</p>
-    </div>
-    <div class="contact-item">
-      <span class="contact-icon">🕐</span>
-      <span class="contact-label">Openingsuren</span>
-      <p class="contact-value">Ma–Vr: 10u – 23u<br>Za–Zo: 10u – 01u</p>
+    <div class="maps-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.8!2d4.0303389!3d50.9323801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bd4e2832ccc5%3A0xbc4466c2925972!2s't%20Capucientje!5e0!3m2!1snl!2sbe!4v1"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </section>
@@ -444,6 +436,7 @@
   <ul class="footer-links">
     <li><a href="#over">Over ons</a></li>
     <li><a href="#zalen">Zalen</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#reserveer">Reserveer</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
